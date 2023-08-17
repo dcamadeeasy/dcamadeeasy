@@ -9,8 +9,9 @@
 devenv.local.nix
 .pre-commit-config.yaml
 
-# node
+# outputs
 node_modules
-
-# caches
 .eslintcache
+tsconfig.tsbuildinfo
+server
+dist

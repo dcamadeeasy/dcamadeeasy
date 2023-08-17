@@ -1,7 +1,20 @@
 declare module "eslint-plugin-simple-import-sort" {
   import type { ESLint } from "eslint";
 
-  const importSort: ESLint.Plugin;
+  const plugin: ESLint.Plugin;
 
-  export default importSort;
+  export default plugin;
+}
+
+declare module "eslint-plugin-qwik" {
+  import type { ESLint, Linter } from "eslint";
+
+  const plugin: ESLint.Plugin & {
+    configs: {
+      recommended: Linter.FlatConfig;
+      strict: Linter.FlatConfig;
+    };
+  };
+
+  export default plugin;
 }

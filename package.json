@@ -1,37 +1,48 @@
 {
-	"name": "dcamadeeasy",
-	"version": "0.0.0-development",
-	"private": true,
-	"type": "module",
-	"packageManager": "pnpm@8.6.12",
-	"engines": {
-		"node": "20.x.x",
-		"pnpm": "8.6.x",
-		"npm": "use pnpm",
-		"yarn": "use pnpm"
-	},
-	"scripts": {
-		"dev.application": "vite --mode ssr --port 4000",
-		"dev.application.debug": "node --inspect-brk ./node_modules/vite/bin/vite.js --mode ssr --port 4000 --force",
-		"lint.eslint": "eslint . --cache",
-		"lint.prettier": "prettier . --cache --check",
-		"lint.tsc": "tsc --noEmit",
-		"fmt.eslint": "eslint . --cache --fix",
-		"fmt.prettier": "prettier . --cache --write"
-	},
-	"devDependencies": {
-		"@eslint/js": "8.47.0",
-		"@tsconfig/esm": "1.0.4",
-		"@tsconfig/strictest": "2.0.1",
-		"@types/eslint": "8.44.2",
-		"@types/eslint__js": "8.42.0",
-		"@typescript-eslint/eslint-plugin": "6.4.0",
-		"@typescript-eslint/parser": "6.4.0",
-		"eslint": "8.47.0",
-		"eslint-plugin-simple-import-sort": "10.0.0",
-		"prettier": "3.0.2",
-		"typescript": "5.1.6",
-		"vite": "4.4.9",
-		"vite-tsconfig-paths": "4.2.0"
-	}
+  "name": "dcamadeeasy",
+  "version": "0.0.0-development",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@8.6.12",
+  "engines": {
+    "node": "20.x.x",
+    "pnpm": "8.6.x",
+    "npm": "use pnpm",
+    "yarn": "use pnpm"
+  },
+  "scripts": {
+    "dev.application": "vite --mode ssr --port 4000",
+    "dev.application.debug": "node --inspect-brk ./node_modules/vite/bin/vite.js --mode ssr --port 4000 --force",
+    "build.application": "concurrently --group 'pnpm:build.application.*'",
+    "build.application.client": "vite build",
+    "build.application.server": "vite build --config vite.config.cloudflare-pages.ts",
+    "preview.application": "wrangler pages dev ./dist --port 5000",
+    "lint.eslint": "eslint . --cache",
+    "lint.prettier": "prettier . --cache --check",
+    "lint.tsc": "tsc --noEmit",
+    "fmt.eslint": "eslint . --cache --fix",
+    "fmt.prettier": "prettier . --cache --write"
+  },
+  "dependencies": {
+    "@builder.io/qwik": "1.2.7",
+    "@builder.io/qwik-city": "1.2.7"
+  },
+  "devDependencies": {
+    "@eslint/js": "8.47.0",
+    "@tsconfig/esm": "1.0.4",
+    "@tsconfig/strictest": "2.0.1",
+    "@types/eslint": "8.44.2",
+    "@types/eslint__js": "8.42.0",
+    "@typescript-eslint/eslint-plugin": "6.4.0",
+    "@typescript-eslint/parser": "6.4.0",
+    "concurrently": "8.2.0",
+    "eslint": "8.47.0",
+    "eslint-plugin-qwik": "1.2.7",
+    "eslint-plugin-simple-import-sort": "10.0.0",
+    "prettier": "3.0.2",
+    "typescript": "5.1.6",
+    "vite": "4.4.9",
+    "vite-tsconfig-paths": "4.2.0",
+    "wrangler": "3.5.1"
+  }
 }
