@@ -1,0 +1,11 @@
+# code editors
+.idea
+.vscode
+.fleet
+
+# devenv
+.direnv
+.devenv*
+devenv.local.nix
+.pre-commit-config.yaml
+
