@@ -12,9 +12,13 @@
 	},
 	"scripts": {
 		"lint.prettier": "prettier . --cache --check",
+		"lint.tsc": "tsc --noEmit",
 		"fmt.prettier": "prettier . --cache --write"
 	},
 	"devDependencies": {
-		"prettier": "3.0.2"
+		"@tsconfig/esm": "1.0.4",
+		"@tsconfig/strictest": "2.0.1",
+		"prettier": "3.0.2",
+		"typescript": "5.1.6"
 	}
 }
