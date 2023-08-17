@@ -1,12 +1,20 @@
 {
-  "name": "dcamadeeasy",
-  "version": "0.0.0-development",
-  "private": true,
-  "packageManager": "pnpm@8.6.12",
-  "engines": {
-    "node": "20.x.x",
-    "pnpm": "8.6.x",
-    "npm": "use pnpm",
-    "yarn": "use pnpm"
-  }
+	"name": "dcamadeeasy",
+	"version": "0.0.0-development",
+	"private": true,
+	"type": "module",
+	"packageManager": "pnpm@8.6.12",
+	"engines": {
+		"node": "20.x.x",
+		"pnpm": "8.6.x",
+		"npm": "use pnpm",
+		"yarn": "use pnpm"
+	},
+	"scripts": {
+		"lint.prettier": "prettier . --cache --check",
+		"fmt.prettier": "prettier . --cache --write"
+	},
+	"devDependencies": {
+		"prettier": "3.0.2"
+	}
 }
