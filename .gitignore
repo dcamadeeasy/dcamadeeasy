@@ -11,6 +11,7 @@ devenv.local.nix
 
 # outputs
 node_modules
+.wrangler
 .eslintcache
 tsconfig.tsbuildinfo
 server

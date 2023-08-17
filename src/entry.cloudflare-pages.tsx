@@ -8,8 +8,10 @@ import { manifest } from "@qwik-client-manifest";
 import render from "~/entry.ssr";
 
 declare global {
-  interface QwikCityPlatform extends PlatformCloudflarePages {
-    DB: unknown;
+  interface QwikCityPlatform extends Omit<PlatformCloudflarePages, "env"> {
+    env?: {
+      DB: D1Database;
+    };
   }
 }
 

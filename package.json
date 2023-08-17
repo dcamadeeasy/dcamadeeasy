@@ -13,10 +13,11 @@
   "scripts": {
     "dev.application": "vite --mode ssr --port 4000",
     "dev.application.debug": "node --inspect-brk ./node_modules/vite/bin/vite.js --mode ssr --port 4000 --force",
+    "dev.application.proxy": "cf-bindings-proxy --d1 DB",
     "build.application": "concurrently --group 'pnpm:build.application.*'",
     "build.application.client": "vite build",
-    "build.application.server": "vite build --config vite.config.cloudflare-pages.ts",
-    "preview.application": "wrangler pages dev ./dist --port 5000",
+    "build.application.server": "vite build --config adapters/cloudflare-pages/vite.config.ts",
+    "preview.application": "wrangler pages dev ./dist --port 5000 --d1 DB",
     "lint.eslint": "eslint . --cache",
     "lint.prettier": "prettier . --cache --check",
     "lint.tsc": "tsc --noEmit",
@@ -25,9 +26,11 @@
   },
   "dependencies": {
     "@builder.io/qwik": "1.2.7",
-    "@builder.io/qwik-city": "1.2.7"
+    "@builder.io/qwik-city": "1.2.7",
+    "cf-bindings-proxy": "0.2.7"
   },
   "devDependencies": {
+    "@cloudflare/workers-types": "4.20230814.0",
     "@eslint/js": "8.47.0",
     "@tsconfig/esm": "1.0.4",
     "@tsconfig/strictest": "2.0.1",

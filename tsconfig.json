@@ -4,7 +4,7 @@
   "compilerOptions": {
     "noEmit": true,
     "incremental": true,
-    "types": ["vite/client"],
+    "types": ["vite/client", "@cloudflare/workers-types"],
     "lib": ["esnext", "dom", "dom.iterable", "webworker"],
     "jsx": "react-jsx",
     "jsxImportSource": "@builder.io/qwik",

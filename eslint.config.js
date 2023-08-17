@@ -12,7 +12,7 @@ export default [
     },
   },
   {
-    ignores: ["server/*"],
+    ignores: ["dist/*", "server/*"],
   },
   {
     files: ["**/*.js", "**/*.ts", "**/*.tsx"],
@@ -40,8 +40,6 @@ export default [
 
       "import-sort/imports": "error",
       "import-sort/exports": "error",
-
-      "@typescript-eslint/consistent-type-definitions": ["error", "type"],
     },
   },
   {
