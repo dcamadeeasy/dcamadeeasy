@@ -1,16 +1,15 @@
 import { component$ } from "@builder.io/qwik";
 import { routeLoader$ } from "@builder.io/qwik-city";
 
-import { databaseBinding } from "~/core/platform/bindings";
+import { getDatabase } from "~/core/database";
 
-export const usePlatform = routeLoader$(async ({ platform }) => {
-  const database = databaseBinding(platform);
-  const result = await database.prepare("select 'Hello world' as response").first();
-  return String(result?.["response"]);
+export const useUsers = routeLoader$(async (event) => {
+  const database = getDatabase(event);
+  return await database.query.users.findMany();
 });
 
 export default component$(() => {
-  const platform = usePlatform();
+  const users = useUsers();
 
-  return <h1>{platform.value}</h1>;
+  return <pre>{JSON.stringify(users.value, null, 2)}</pre>;
 });

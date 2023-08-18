@@ -13,11 +13,16 @@
   "scripts": {
     "dev.application": "vite --mode ssr --port 4000",
     "dev.application.debug": "node --inspect-brk ./node_modules/vite/bin/vite.js --mode ssr --port 4000 --force",
-    "dev.application.proxy": "cf-bindings-proxy --d1 DB",
+    "dev.application.proxy": "cf-bindings-proxy",
+    "dev.database.studio": "tsx node_modules/drizzle-kit/index.cjs studio --port 6000",
+    "dev.database.push": "tsx node_modules/drizzle-kit/index.cjs push:sqlite",
+    "dev.database.migrations.check": "tsx node_modules/drizzle-kit/index.cjs check:sqlite",
+    "dev.database.migrations.generate": "tsx node_modules/drizzle-kit/index.cjs generate:sqlite",
+    "dev.database.migrations.apply": "wrangler d1 migrations apply DB --local",
     "build.application": "concurrently --group 'pnpm:build.application.*'",
     "build.application.client": "vite build",
     "build.application.server": "vite build --config adapters/cloudflare-pages/vite.config.ts",
-    "preview.application": "wrangler pages dev ./dist --port 5000 --d1 DB",
+    "preview.application": "wrangler pages dev ./dist --port 5000",
     "lint.eslint": "eslint . --cache",
     "lint.prettier": "prettier . --cache --check",
     "lint.tsc": "tsc --noEmit",
@@ -27,7 +32,8 @@
   "dependencies": {
     "@builder.io/qwik": "1.2.7",
     "@builder.io/qwik-city": "1.2.7",
-    "cf-bindings-proxy": "0.2.7"
+    "cf-bindings-proxy": "0.2.7",
+    "drizzle-orm": "0.28.2"
   },
   "devDependencies": {
     "@cloudflare/workers-types": "4.20230814.0",
@@ -39,10 +45,12 @@
     "@typescript-eslint/eslint-plugin": "6.4.0",
     "@typescript-eslint/parser": "6.4.0",
     "concurrently": "8.2.0",
+    "drizzle-kit": "0.19.13",
     "eslint": "8.47.0",
     "eslint-plugin-qwik": "1.2.7",
     "eslint-plugin-simple-import-sort": "10.0.0",
     "prettier": "3.0.2",
+    "tsx": "3.12.7",
     "typescript": "5.1.6",
     "vite": "4.4.9",
     "vite-tsconfig-paths": "4.2.0",
