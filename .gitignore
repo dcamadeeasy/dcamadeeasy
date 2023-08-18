@@ -14,5 +14,9 @@ node_modules
 .wrangler
 .eslintcache
 tsconfig.tsbuildinfo
-server
+/server
 dist
+
+# environment
+.env
+.dev.vars

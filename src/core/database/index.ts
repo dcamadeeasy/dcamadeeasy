@@ -1,2 +1,2 @@
-export * from "./client";
-export * from "./schema";
+export type { DatabaseClient } from "./client";
+export { getDatabase } from "./middleware";

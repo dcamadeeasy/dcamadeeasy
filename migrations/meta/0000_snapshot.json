@@ -1,7 +1,7 @@
 {
   "version": "5",
   "dialect": "sqlite",
-  "id": "e943c814-bdc4-4f2f-a82e-0e45dab3cd01",
+  "id": "1bfd433c-382e-49bc-8aa5-4480bcf6b738",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "tables": {
     "users": {
@@ -14,34 +14,72 @@
           "notNull": true,
           "autoincrement": false
         },
-        "email_address": {
-          "name": "email_address",
+        "email": {
+          "name": "email",
           "type": "text",
           "primaryKey": false,
           "notNull": true,
           "autoincrement": false
         },
-        "email_verified_at": {
-          "name": "email_verified_at",
+        "verified_at": {
+          "name": "verified_at",
           "type": "integer",
           "primaryKey": false,
           "notNull": false,
           "autoincrement": false
-        },
-        "created_at": {
-          "name": "created_at",
-          "type": "integer",
-          "primaryKey": false,
-          "notNull": true,
-          "autoincrement": false,
-          "default": "current_timestamp"
         }
       },
       "indexes": {
-        "users_email_address_unique": {
-          "name": "users_email_address_unique",
+        "users_email_unique": {
+          "name": "users_email_unique",
           "columns": [
-            "email_address"
+            "email"
+          ],
+          "isUnique": true
+        }
+      },
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "verification_tokens": {
+      "name": "verification_tokens",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "integer",
+          "primaryKey": true,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "token": {
+          "name": "token",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "email": {
+          "name": "email",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "verified_at": {
+          "name": "verified_at",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        }
+      },
+      "indexes": {
+        "verification_tokens_token_email_unique": {
+          "name": "verification_tokens_token_email_unique",
+          "columns": [
+            "token",
+            "email"
           ],
           "isUnique": true
         }

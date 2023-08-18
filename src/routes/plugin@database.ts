@@ -1,7 +1,3 @@
-import type { RequestEvent } from "@builder.io/qwik-city";
+import { withDatabase } from "~/core/database/middleware";
 
-import { createDatabase } from "~/core/database";
-
-export function onRequest(event: RequestEvent) {
-  createDatabase(event);
-}
+export const { onRequest } = withDatabase();

@@ -2,6 +2,7 @@
   "extends": ["@tsconfig/esm/tsconfig.json", "@tsconfig/strictest/tsconfig.json"],
   "exclude": ["dist", "server"],
   "compilerOptions": {
+    "allowJs": true,
     "noEmit": true,
     "incremental": true,
     "types": ["vite/client", "@cloudflare/workers-types"],

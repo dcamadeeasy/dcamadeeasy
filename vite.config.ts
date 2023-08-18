@@ -5,4 +5,7 @@ import tsconfigPaths from "vite-tsconfig-paths";
 
 export default defineConfig({
   plugins: [qwikCity(), qwikVite(), tsconfigPaths()],
+  optimizeDeps: {
+    include: ["@auth/core"],
+  },
 });
