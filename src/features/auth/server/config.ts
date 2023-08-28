@@ -33,7 +33,7 @@ export function authConfig(event: RequestEventCommon): QwikAuthConfig {
   return {
     secret: environment.secret,
     adapter: DrizzleAdapter(database),
-    providers: [EmailProvider(), CredentialsProvider()],
+    providers: [EmailProvider(), CredentialsProvider(database)],
     trustHost: true,
     session: {
       strategy: "jwt",

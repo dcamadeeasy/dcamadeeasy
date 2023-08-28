@@ -1,6 +1,9 @@
 import type { Provider } from "@auth/core/providers";
+import type { DatabaseClient } from "~/core/database";
+import { users } from "../schema";
+import { eq } from "drizzle-orm";
 
-export function CredentialsProvider(): Provider {
+export function CredentialsProvider(database: DatabaseClient): Provider {
     return {
         id: "credentials",
         name: "Credentials",
@@ -8,12 +11,14 @@ export function CredentialsProvider(): Provider {
         credentials: {
             email: {label: "Email", type: "email"},
         },
-        authorize(credentials, request) {
-            const email = credentials['email'];
-
-            // TODO: call to db to check if the user exists user?
+        async authorize(credentials, request) {
+            const email = credentials['email'] as string;
+            const user = await database.select().from(users).where(eq(users.email, email)).get();
             
-            return {id: 1, email};
+            if (user) {
+                return user;
+            }
+            return null;
         },
     }
 }
