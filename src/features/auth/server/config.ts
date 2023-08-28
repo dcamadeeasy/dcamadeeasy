@@ -6,7 +6,7 @@ import { getDatabase } from "~/core/database";
 import { getEnvironment } from "~/core/environment";
 
 import { DrizzleAdapter } from "./adapters";
-import { EmailProvider } from "./providers";
+import { EmailProvider, CredentialsProvider } from "./providers";
 
 declare module "@auth/core/jwt" {
   interface JWT {
@@ -33,7 +33,7 @@ export function authConfig(event: RequestEventCommon): QwikAuthConfig {
   return {
     secret: environment.secret,
     adapter: DrizzleAdapter(database),
-    providers: [EmailProvider()],
+    providers: [EmailProvider(), CredentialsProvider()],
     trustHost: true,
     session: {
       strategy: "jwt",
