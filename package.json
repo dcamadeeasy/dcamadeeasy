@@ -14,7 +14,7 @@
     "dev.application": "vite --mode ssr --port 4000",
     "dev.application.debug": "node --inspect-brk ./node_modules/vite/bin/vite.js --mode ssr --port 4000 --force",
     "dev.application.proxy": "cf-bindings-proxy",
-    "dev.database.studio": "tsx node_modules/drizzle-kit/index.cjs studio --port 6000",
+    "dev.database.studio": "tsx node_modules/drizzle-kit/index.cjs studio --port 4001",
     "dev.database.push": "tsx node_modules/drizzle-kit/index.cjs push:sqlite",
     "dev.database.migrations.check": "tsx node_modules/drizzle-kit/index.cjs check:sqlite",
     "dev.database.migrations.generate": "tsx node_modules/drizzle-kit/index.cjs generate:sqlite",
@@ -36,6 +36,7 @@
     "@builder.io/qwik-city": "1.2.7",
     "cf-bindings-proxy": "0.2.7",
     "drizzle-orm": "0.28.2",
+    "flareutils": "0.4.0",
     "zod": "3.22.1"
   },
   "devDependencies": {

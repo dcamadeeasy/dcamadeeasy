@@ -1,1 +1,2 @@
-export * from "./email";
+export * from "./prodEmailProvider";
+export * from "./devEmailProvider";
