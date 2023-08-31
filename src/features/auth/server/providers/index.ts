@@ -1,2 +1,2 @@
-export * from "./email";
-export * from "./credentials";
+export * from "./prodEmailProvider";
+export * from "./devEmailProvider";

@@ -6,7 +6,7 @@ import { getDatabase } from "~/core/database";
 import { getEnvironment } from "~/core/environment";
 
 import { DrizzleAdapter } from "./adapters";
-import { EmailProvider, CredentialsProvider } from "./providers";
+import { ProdEmailProvider, DevEmailProvider } from "./providers";
 
 declare module "@auth/core/jwt" {
   interface JWT {
@@ -26,14 +26,17 @@ declare module "@auth/core/types" {
 
 export function authConfig(event: RequestEventCommon): QwikAuthConfig {
   const database = getDatabase(event);
-  const environment = getEnvironment(z.object({ secret: z.string() }), {
+  const environment = getEnvironment(z.object({ secret: z.string(), isDevMode: z.boolean() }), {
     secret: event.env.get("AUTH_SECRET"),
+    isDevMode: event.env.get("DEV_MODE") === "true",
   });
+
+  const provider = environment.isDevMode ? DevEmailProvider(database) : ProdEmailProvider();
 
   return {
     secret: environment.secret,
     adapter: DrizzleAdapter(database),
-    providers: [EmailProvider(), CredentialsProvider(database)],
+    providers: [provider],
     trustHost: true,
     session: {
       strategy: "jwt",
