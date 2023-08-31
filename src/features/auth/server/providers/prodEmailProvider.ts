@@ -14,7 +14,7 @@ async function sendVerMail() {
       to: [
         {
           name: "Jane Foobar",
-          email: "jane@foobar.baz",
+          email: "dzoltow@gmail.com",
         },
       ],
       reply_to: {
