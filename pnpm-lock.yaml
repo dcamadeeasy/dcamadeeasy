@@ -23,6 +23,9 @@ dependencies:
   drizzle-orm:
     specifier: 0.28.2
     version: 0.28.2(@cloudflare/workers-types@4.20230814.0)
+  flareutils:
+    specifier: 0.4.0
+    version: 0.4.0
   zod:
     specifier: 3.22.1
     version: 3.22.1
@@ -2229,6 +2232,10 @@ packages:
       locate-path: 6.0.0
       path-exists: 4.0.0
     dev: true
+
+  /flareutils@0.4.0:
+    resolution: {integrity: sha512-EHl1XE7b+xusnBGhS543K/Dknv4FPQ6Rl++dotwHEH8M3tike8o32q4wPQxSODbZdfSetuI8AOpkz4V4caM3Uw==}
+    dev: false
 
   /flat-cache@3.0.4:
     resolution: {integrity: sha512-dm9s5Pw7Jc0GvMYbshN6zchCA9RgQlzzEZX3vylR9IqFfS8XciblUXOKfW6SiuJ0e13eDYZoZV5wdrev7P3Nwg==}

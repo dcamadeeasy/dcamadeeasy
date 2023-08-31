@@ -36,6 +36,7 @@
     "@builder.io/qwik-city": "1.2.7",
     "cf-bindings-proxy": "0.2.7",
     "drizzle-orm": "0.28.2",
+    "flareutils": "0.4.0",
     "zod": "3.22.1"
   },
   "devDependencies": {

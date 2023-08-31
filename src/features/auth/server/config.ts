@@ -31,7 +31,7 @@ export function authConfig(event: RequestEventCommon): QwikAuthConfig {
     isDevMode: event.env.get("DEV_MODE") === "true",
   });
 
-  const provider = environment.isDevMode ? DevEmailProvider(database) : ProdEmailProvider();
+  const provider = !environment.isDevMode ? DevEmailProvider(database) : ProdEmailProvider();
 
   return {
     secret: environment.secret,
