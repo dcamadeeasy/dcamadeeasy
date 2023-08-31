@@ -10,6 +10,7 @@ export default component$(() => {
     <Form action={signIn}>
       <input type="hidden" name="providerId" value="email" />
       <input type="email" name="options.email" required />
+
       <button>Continue</button>
     </Form>
   );
